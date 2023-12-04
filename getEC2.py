@@ -1,12 +1,11 @@
 import boto3
-
-client = boto3.client('ec2')
-
 import sys
 
 region = sys.argv[1]
 
 print("Region:" + region)
+
+client = boto3.client('ec2', region=region)
 
 conn = boto3.resource('ec2', region=region)
 instances = conn.instances.filter(region=region)
