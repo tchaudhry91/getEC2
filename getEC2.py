@@ -6,6 +6,8 @@ import sys
 
 region = sys.argv[1]
 
+print("Region:" + region)
+
 conn = boto3.resource('ec2', region=region)
 instances = conn.instances.filter(region=region)
 for instance in instances:
